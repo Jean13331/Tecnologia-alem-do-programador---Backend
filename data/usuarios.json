@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1779309528330",
+    "nome": "Jean",
+    "email": "jeanortega@gmail.com",
+    "cpf": "07154483156",
+    "senha": "123456678",
+    "criadoEm": "2026-05-20T20:38:48.330Z"
+  },
+  {
+    "id": "1779309613657",
+    "nome": "Jean",
+    "email": "jean@gmail.com",
+    "cpf": "07154483156",
+    "senha": "12345678",
+    "criadoEm": "2026-05-20T20:40:13.657Z"
+  },
+  {
+    "id": "1779309817693",
+    "nome": "123",
+    "email": "123123",
+    "cpf": "21312312312",
+    "senha": "132131",
+    "criadoEm": "2026-05-20T20:43:37.693Z"
+  },
+  {
+    "id": "1779309885065",
+    "nome": "123",
+    "email": "213213",
+    "cpf": "32131231231",
+    "senha": "123",
+    "criadoEm": "2026-05-20T20:44:45.065Z",
+    "moedas": 100
+  },
+  {
+    "id": "1779310561032",
+    "nome": "Jean",
+    "email": "jean",
+    "cpf": "aaaaaaaaaaa",
+    "senha": "123",
+    "criadoEm": "2026-05-20T20:56:01.032Z",
+    "moedas": 100
+  },
+  {
+    "id": "1779310670856",
+    "nome": "jean",
+    "email": "jean@efewewfw",
+    "cpf": "dfsdvdsvdsvsfsdfds",
+    "senha": "123",
+    "criadoEm": "2026-05-20T20:57:50.856Z",
+    "moedas": 100
+  }
+]
