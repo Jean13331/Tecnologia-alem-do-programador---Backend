@@ -18,6 +18,7 @@ Servidor: **http://localhost:3001**
 | GET | `/api/health` | Verifica se a API está online |
 | POST | `/api/cadastro` | Cadastra usuário |
 | POST | `/api/login` | Autentica usuário |
+| POST | `/api/senha` | Redefine senha por e-mail |
 
 ### Cadastro — `POST /api/cadastro`
 
@@ -37,6 +38,15 @@ Servidor: **http://localhost:3001**
 {
   "email": "jean@email.com",
   "senha": "123456"
+}
+```
+
+### Senha — `POST /api/senha`
+
+```json
+{
+  "email": "jean@email.com",
+  "senha": "novaSenha123"
 }
 ```
 

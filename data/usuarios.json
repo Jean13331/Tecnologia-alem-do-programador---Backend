@@ -49,5 +49,14 @@
     "senha": "123",
     "criadoEm": "2026-05-20T20:57:50.856Z",
     "moedas": 100
+  },
+  {
+    "id": "1779311539865",
+    "nome": "Jean",
+    "email": "jeano@gmail.com",
+    "cpf": "777.777.777-77",
+    "senha": "123",
+    "criadoEm": "2026-05-20T21:12:19.865Z",
+    "moedas": 100
   }
 ]

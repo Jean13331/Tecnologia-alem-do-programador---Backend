@@ -21,6 +21,11 @@ export async function buscarPorEmail(email) {
   return usuarios.find((u) => u.email.toLowerCase() === email.toLowerCase())
 }
 
+export async function buscarPorId(id) {
+  const usuarios = await listarUsuarios()
+  return usuarios.find((u) => u.id === id)
+}
+
 /** Atribui moedas iniciais ao objeto do usuário (antes de salvar). */
 export function atribuirMoedasIniciais(usuario, moedas = MOEDAS_INICIAIS) {
   return { ...usuario, moedas }
@@ -32,4 +37,19 @@ export async function criarUsuario(usuario) {
   usuarios.push(usuarioComMoedas)
   await salvarUsuarios(usuarios)
   return usuarioComMoedas
+}
+
+export async function atualizarSenhaPorEmail(email, novaSenha) {
+  const usuarios = await listarUsuarios()
+  const indice = usuarios.findIndex(
+    (u) => u.email.toLowerCase() === email.toLowerCase(),
+  )
+
+  if (indice === -1) {
+    return null
+  }
+
+  usuarios[indice].senha = novaSenha
+  await salvarUsuarios(usuarios)
+  return usuarios[indice]
 }

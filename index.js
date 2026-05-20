@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express from 'express'
-import authRoutes from './routes/auth.js'
+import cadastroRoutes from './routes/cadastro.js'
+import loginRoutes from './routes/login.js'
+import usuariosRoutes from './routes/usuarios.js'
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -20,10 +22,15 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true, mensagem: 'API Sessi online' })
 })
 
-app.use('/api', authRoutes)
+app.use('/api/cadastro', cadastroRoutes)
+app.use('/api/login', loginRoutes)
+app.use('/api/usuarios', usuariosRoutes)
 
 const servidor = app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`)
+  console.log(
+    'Rotas: POST /api/cadastro | POST /api/login | GET /api/usuarios/:id',
+  )
 })
 
 servidor.on('error', (erro) => {
