@@ -1,15 +1,16 @@
 {
-  "name": "sessi-backend",
+  "name": "sesi-backend",
   "version": "1.0.0",
-  "description": "API Node para o frontend Sessi",
+  "description": "API Node para o frontend Sesi",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.js",
-    "start": "node index.js"
+    "dev": "node --env-file=.env --watch index.js",
+    "start": "node --env-file=.env index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "swagger-ui-express": "^5.0.1"
   }
 }

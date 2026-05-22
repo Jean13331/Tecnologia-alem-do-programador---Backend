@@ -1,0 +1,396 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API Sesi",
+    "description": "Documentação da API do projeto Sesi (demonstração de segurança).\n\n**GET** = buscar dados | **POST** = criar/enviar | **DELETE** = remover",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001",
+      "description": "Backend local"
+    }
+  ],
+  "tags": [
+    { "name": "Sistema", "description": "Status da API" },
+    { "name": "Cadastro", "description": "Criar conta" },
+    { "name": "Login", "description": "Autenticação" },
+    { "name": "Usuários", "description": "Consulta e moedas" },
+    { "name": "Chat", "description": "Mensagens e Gemini" }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": ["Sistema"],
+        "summary": "Verificar se a API está online",
+        "responses": {
+          "200": {
+            "description": "API online",
+            "content": {
+              "application/json": {
+                "example": { "ok": true, "mensagem": "API Sesi online" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cadastro": {
+      "post": {
+        "tags": ["Cadastro"],
+        "summary": "Cadastrar novo usuário",
+        "description": "Cria usuário com 100 moedas iniciais. E-mail deve conter @.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CadastroRequest" },
+              "example": {
+                "nome": "Jean",
+                "email": "jean@email.com",
+                "cpf": "071.544.831-56",
+                "senha": "123456",
+                "confirmarSenha": "123456"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro OK (sem senha na resposta)",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CadastroResponse" }
+              }
+            }
+          },
+          "400": { "description": "E-mail inválido ou dados faltando" },
+          "409": { "description": "E-mail já cadastrado" }
+        }
+      }
+    },
+    "/api/login": {
+      "post": {
+        "tags": ["Login"],
+        "summary": "Fazer login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginRequest" },
+              "example": { "email": "jean@email.com", "senha": "123456" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login OK — use o `id` do usuário na Home (`/home?id=...`)",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/LoginResponse" }
+              }
+            }
+          },
+          "401": { "description": "E-mail ou senha incorretos" }
+        }
+      }
+    },
+    "/api/usuarios": {
+      "get": {
+        "tags": ["Usuários"],
+        "summary": "Listar todos os usuários (dados completos)",
+        "description": "Retorna todos os campos, **incluindo senha** (falha de segurança intencional).",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usuarios": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/UsuarioCompleto" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usuarios/{id}": {
+      "get": {
+        "tags": ["Usuários"],
+        "summary": "Buscar um usuário por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "example": "1779310561032"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado (sem senha)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usuario": { "$ref": "#/components/schemas/UsuarioPublico" }
+                  }
+                }
+              }
+            }
+          },
+          "404": { "description": "Não encontrado" }
+        }
+      }
+    },
+    "/api/usuarios/{id}/moedas": {
+      "post": {
+        "tags": ["Usuários"],
+        "summary": "Adicionar moedas ao usuário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quantidade": {
+                    "type": "number",
+                    "default": 100,
+                    "example": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Moedas adicionadas" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      }
+    },
+    "/api/chat": {
+      "get": {
+        "tags": ["Chat"],
+        "summary": "Listar todas as mensagens do chat",
+        "responses": {
+          "200": {
+            "description": "Histórico de mensagens",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "mensagens": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/MensagemChat" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Chat"],
+        "summary": "Enviar mensagem (Gemini responde)",
+        "description": "**Vulnerabilidade intencional:** o servidor usa o valor de `moedasDescontar` enviado no body.\n\n- `15` = desconta 15\n- `0` = grátis\n- `-15` ou `\"15-30\"` = adiciona moedas\n- `usuarioCobrancaId` pode ser de outro usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ChatPostRequest" },
+              "examples": {
+                "normal": {
+                  "summary": "Uso normal (site)",
+                  "value": {
+                    "usuarioId": "1779310561032",
+                    "usuarioCobrancaId": "1779310561032",
+                    "nome": "Jean",
+                    "texto": "Olá",
+                    "moedasDescontar": 15
+                  }
+                },
+                "gratis": {
+                  "summary": "Demo — mensagem grátis",
+                  "value": {
+                    "usuarioId": "1779310561032",
+                    "usuarioCobrancaId": "1779310561032",
+                    "nome": "Jean",
+                    "texto": "Teste",
+                    "moedasDescontar": 0
+                  }
+                },
+                "creditar": {
+                  "summary": "Demo — ganhar moedas",
+                  "value": {
+                    "usuarioId": "1779310561032",
+                    "usuarioCobrancaId": "1779310561032",
+                    "nome": "Jean",
+                    "texto": "Teste",
+                    "moedasDescontar": -15
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Mensagem enviada + resposta do ChatBot",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ChatPostResponse" }
+              }
+            }
+          },
+          "400": { "description": "Texto vazio, moedasDescontar inválido ou JSON malformado" },
+          "402": { "description": "Moedas insuficientes" },
+          "404": { "description": "Usuário de cobrança não encontrado" }
+        }
+      },
+      "delete": {
+        "tags": ["Chat"],
+        "summary": "Limpar toda a conversa",
+        "responses": {
+          "200": {
+            "description": "Chat limpo",
+            "content": {
+              "application/json": {
+                "example": {
+                  "mensagem": "Conversa limpa com sucesso",
+                  "mensagens": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CadastroRequest": {
+        "type": "object",
+        "required": ["nome", "email", "cpf", "senha", "confirmarSenha"],
+        "properties": {
+          "nome": { "type": "string" },
+          "email": { "type": "string", "description": "Deve conter @" },
+          "cpf": { "type": "string" },
+          "senha": { "type": "string" },
+          "confirmarSenha": { "type": "string", "description": "Validado no frontend" }
+        }
+      },
+      "CadastroResponse": {
+        "type": "object",
+        "properties": {
+          "mensagem": { "type": "string" },
+          "usuario": { "$ref": "#/components/schemas/UsuarioPublico" }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "required": ["email", "senha"],
+        "properties": {
+          "email": { "type": "string" },
+          "senha": { "type": "string" }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "mensagem": { "type": "string" },
+          "usuario": { "$ref": "#/components/schemas/UsuarioPublico" }
+        }
+      },
+      "UsuarioPublico": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "cpf": { "type": "string" },
+          "moedas": { "type": "number" }
+        }
+      },
+      "UsuarioCompleto": {
+        "allOf": [
+          { "$ref": "#/components/schemas/UsuarioPublico" },
+          {
+            "type": "object",
+            "properties": {
+              "senha": { "type": "string" },
+              "criadoEm": { "type": "string", "format": "date-time" }
+            }
+          }
+        ]
+      },
+      "MensagemChat": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "usuarioId": { "type": "string", "description": "ID do usuário ou \"chatbot\"" },
+          "nome": { "type": "string" },
+          "texto": { "type": "string" },
+          "criadoEm": { "type": "string", "format": "date-time" }
+        }
+      },
+      "ChatPostRequest": {
+        "type": "object",
+        "required": ["texto", "moedasDescontar"],
+        "properties": {
+          "usuarioId": {
+            "type": "string",
+            "description": "Quem aparece como autor da mensagem"
+          },
+          "usuarioCobrancaId": {
+            "type": "string",
+            "description": "Quem paga (ou recebe) as moedas"
+          },
+          "nome": { "type": "string" },
+          "texto": { "type": "string" },
+          "moedasDescontar": {
+            "oneOf": [
+              { "type": "number", "example": 15 },
+              { "type": "string", "example": "15-30", "description": "Expressão matemática (entre aspas no JSON)" }
+            ],
+            "description": "Valor cobrado. Negativo credita moedas. Obrigatório."
+          }
+        }
+      },
+      "ChatPostResponse": {
+        "type": "object",
+        "properties": {
+          "mensagem": { "type": "string" },
+          "chat": { "$ref": "#/components/schemas/MensagemChat" },
+          "resposta": { "$ref": "#/components/schemas/MensagemChat" },
+          "moedasDescontadas": { "type": "number" },
+          "usuarioCobranca": { "$ref": "#/components/schemas/UsuarioPublico" }
+        }
+      },
+      "Erro": {
+        "type": "object",
+        "properties": {
+          "mensagem": { "type": "string" }
+        }
+      }
+    }
+  }
+}
