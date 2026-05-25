@@ -24,7 +24,25 @@ export async function buscarPorEmail(email) {
 
 export async function buscarPorId(id) {
   const usuarios = await listarUsuarios()
-  return usuarios.find((u) => u.id === id)
+  return usuarios.find((u) => String(u.id) === String(id))
+}
+
+/** Próximo ID sequencial: 1, 2, 3… (ignora IDs antigos longos, ex. timestamp). */
+export async function gerarProximoIdUsuario() {
+  const usuarios = await listarUsuarios()
+  let maior = 0
+
+  for (const usuario of usuarios) {
+    const idTexto = String(usuario.id ?? '').trim()
+    if (!/^\d+$/.test(idTexto)) continue
+
+    const numero = Number(idTexto)
+    if (numero > 0 && numero <= 999_999 && numero > maior) {
+      maior = numero
+    }
+  }
+
+  return String(maior + 1)
 }
 
 /** Atribui moedas iniciais ao objeto do usuário (antes de salvar). */
@@ -33,7 +51,8 @@ export function atribuirMoedasIniciais(usuario, moedas = MOEDAS_INICIAIS) {
 }
 
 export async function criarUsuario(usuario) {
-  const usuarioComMoedas = atribuirMoedasIniciais(usuario)
+  const id = usuario.id ?? (await gerarProximoIdUsuario())
+  const usuarioComMoedas = atribuirMoedasIniciais({ ...usuario, id })
   const usuarios = await listarUsuarios()
   usuarios.push(usuarioComMoedas)
   await salvarUsuarios(usuarios)

@@ -8,21 +8,12 @@ router.post('/', async (req, res) => {
     const { nome, email, cpf, senha } = req.body
     const emailNormalizado = (email ?? '').trim().toLowerCase()
 
-    if (!emailNormalizado) {
-      return res.status(400).json({ mensagem: 'Preencha o e-mail' })
-    }
-
-    if (!emailNormalizado.includes('@')) {
-      return res.status(400).json({ mensagem: 'E-mail deve conter @' })
-    }
-
     const existente = await buscarPorEmail(emailNormalizado)
     if (existente) {
       return res.status(409).json({ mensagem: 'E-mail já cadastrado' })
     }
 
     const usuario = await criarUsuario({
-      id: Date.now().toString(),
       nome: (nome ?? '').trim(),
       email: emailNormalizado,
       cpf: cpf ?? '',

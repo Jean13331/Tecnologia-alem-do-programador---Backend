@@ -39,7 +39,7 @@
       "post": {
         "tags": ["Cadastro"],
         "summary": "Cadastrar novo usuário",
-        "description": "Cria usuário com 100 moedas iniciais. E-mail deve conter @.",
+        "description": "Cria usuário com ID sequencial (1, 2, 3…) e 100 moedas iniciais. Validação de e-mail com @ apenas no frontend.",
         "requestBody": {
           "required": true,
           "content": {
@@ -64,7 +64,7 @@
               }
             }
           },
-          "400": { "description": "E-mail inválido ou dados faltando" },
+          "400": { "description": "Dados inválidos (se enviados)" },
           "409": { "description": "E-mail já cadastrado" }
         }
       }
@@ -130,7 +130,7 @@
             "in": "path",
             "required": true,
             "schema": { "type": "string" },
-            "example": "1779310561032"
+            "example": "1"
           }
         ],
         "responses": {
@@ -221,8 +221,8 @@
                 "normal": {
                   "summary": "Uso normal (site)",
                   "value": {
-                    "usuarioId": "1779310561032",
-                    "usuarioCobrancaId": "1779310561032",
+                    "usuarioId": "1",
+                    "usuarioCobrancaId": "1",
                     "nome": "Jean",
                     "texto": "Olá",
                     "moedasDescontar": 15
@@ -231,8 +231,8 @@
                 "gratis": {
                   "summary": "Demo — mensagem grátis",
                   "value": {
-                    "usuarioId": "1779310561032",
-                    "usuarioCobrancaId": "1779310561032",
+                    "usuarioId": "1",
+                    "usuarioCobrancaId": "1",
                     "nome": "Jean",
                     "texto": "Teste",
                     "moedasDescontar": 0
@@ -241,8 +241,8 @@
                 "creditar": {
                   "summary": "Demo — ganhar moedas",
                   "value": {
-                    "usuarioId": "1779310561032",
-                    "usuarioCobrancaId": "1779310561032",
+                    "usuarioId": "1",
+                    "usuarioCobrancaId": "1",
                     "nome": "Jean",
                     "texto": "Teste",
                     "moedasDescontar": -15
@@ -292,7 +292,7 @@
         "required": ["nome", "email", "cpf", "senha", "confirmarSenha"],
         "properties": {
           "nome": { "type": "string" },
-          "email": { "type": "string", "description": "Deve conter @" },
+          "email": { "type": "string", "description": "Validação de @ só no frontend" },
           "cpf": { "type": "string" },
           "senha": { "type": "string" },
           "confirmarSenha": { "type": "string", "description": "Validado no frontend" }
