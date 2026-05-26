@@ -74,5 +74,21 @@
     "nome": "ChatBot",
     "texto": "Bom dia!\n\nSou o ChatBot do Sesi e estou aqui para ajudar.\n\nComo posso auxiliá-lo hoje?",
     "criadoEm": "2026-05-26T12:09:56.119Z"
+  },
+  {
+    "id": "1779826186416-u",
+    "usuarioId": "1",
+    "conversaUsuarioId": "1",
+    "nome": "Ana Silva",
+    "texto": "como você esta ?",
+    "criadoEm": "2026-05-26T20:09:46.416Z"
+  },
+  {
+    "id": "1779826188619-b",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "1",
+    "nome": "ChatBot",
+    "texto": "Estou funcionando perfeitamente e pronto para ajudar!\n\nComo um programa de computador, não tenho sentimentos ou estados como os humanos. Meu objetivo é processar informações e responder às suas perguntas da melhor forma possível.\n\nEm que posso ser útil hoje?",
+    "criadoEm": "2026-05-26T20:09:48.619Z"
   }
 ]
