@@ -5,7 +5,7 @@
     "email": "ana.silva@email.com",
     "cpf": "123.456.789-01",
     "senha": "$2b$10$M0uDavG9rWjs.Nys9GhggeleXaws1Cg6Qz9uwYbbDVqVYXgNogcCm",
-    "moedas": 65,
+    "moedas": 50,
     "criadoEm": "2026-05-18T10:15:00.000Z"
   },
   {
@@ -62,13 +62,4 @@
     "moedas": 40,
     "criadoEm": "2026-05-21T13:45:33.000Z"
   },
-  {
-    "id": "8",
-    "nome": "Jean Ortega",
-    "email": "jean.ortega@gmail.com",
-    "cpf": "071.544.831-56",
-    "senha": "$2b$10$332icpVI7EHfJtT.TIFpo.XqaZEGZzFhIUr7HQK0Bolu4Swxec1OS",
-    "moedas": 100,
-    "criadoEm": "2026-05-22T10:00:00.000Z"
-  }
 ]

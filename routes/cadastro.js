@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { criptografarSenha } from '../services/senha.js'
 import { buscarPorEmail, criarUsuario } from '../storage/usuarios.js'
+import { validarCpf } from '../utils/cpf.js'
 
 const router = Router()
 
@@ -26,6 +27,12 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ mensagem: 'Preencha a senha' })
     }
 
+    const validacaoCpf = validarCpf(cpf)
+    if (!validacaoCpf.ok) {
+      console.log('[CADASTRO] CPF rejeitado:', cpf, '->', validacaoCpf.mensagem)
+      return res.status(400).json({ mensagem: validacaoCpf.mensagem })
+    }
+
     const existente = await buscarPorEmail(emailNormalizado)
     if (existente) {
       return res.status(409).json({ mensagem: 'E-mail já cadastrado' })
@@ -36,7 +43,7 @@ router.post('/', async (req, res) => {
     const usuario = await criarUsuario({
       nome: nomeLimpo,
       email: emailNormalizado,
-      cpf: cpf ?? '',
+      cpf: validacaoCpf.cpfFormatado,
       senha: senhaHash,
       criadoEm: new Date().toISOString(),
     })
