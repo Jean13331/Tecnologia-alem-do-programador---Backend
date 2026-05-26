@@ -90,5 +90,21 @@
     "nome": "ChatBot",
     "texto": "Olá!\n\nSou o seu **ChatBot do Sesi**. É um prazer te ajudar!\n\nComo posso auxiliar você hoje?",
     "criadoEm": "2026-05-26T19:54:16.770Z"
+  },
+  {
+    "id": "1779826358227-u",
+    "usuarioId": "1",
+    "conversaUsuarioId": "1",
+    "nome": "Ana Silva",
+    "texto": "chat pode me passar um resumo sobre o tema de tecnologia ?",
+    "criadoEm": "2026-05-26T20:12:38.227Z"
+  },
+  {
+    "id": "1779826366843-b",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "1",
+    "nome": "ChatBot",
+    "texto": "Com certeza! A tecnologia é um tema vasto e fascinante.\n\nAqui está um resumo sobre o tema de tecnologia:\n\n---\n\n**O que é Tecnologia?**\n\nTecnologia pode ser definida como a **aplicação do conhecimento científico e técnico para criar ferramentas, sistemas, métodos e processos** que visam resolver problemas práticos, melhorar a eficiência e estender as capacidades humanas. Ela está presente em praticamente todos os aspectos da nossa vida, desde as ferramentas mais simples até os sistemas mais complexos.\n\n**Principais Áreas e Exemplos**\n\nA tecnologia abrange diversas áreas, como:\n\n*   **Tecnologia da Informação (TI):** Envolve computadores, softwares, redes, internet e sistemas de gerenciamento de dados. Exemplos incluem smartphones, aplicativos, websites e sistemas operacionais.\n*   **Comunicações:** Refere-se aos meios e métodos para transmitir informações. Inclui telefonia, rádio, televisão, satélites e, mais recentemente, a Internet das Coisas (IoT).\n*   **Biotecnologia:** Aplica conhecimentos biológicos para criar produtos e soluções, como medicamentos, alimentos geneticamente modificados e terapias gênicas.\n*   **Engenharia e Automação:** Desenvolvimento de máquinas, robôs e sistemas automatizados para indústrias, veículos e residências.\n*   **Energia:** Tecnologias para geração, armazenamento e distribuição de energia, como painéis solares, turbinas eólicas e baterias avançadas.\n*   **Saúde:** Equipamentos médicos, telemedicina, próteses avançadas e sistemas de diagnóstico.\n\n**Impacto na Sociedade**\n\nA tecnologia tem um impacto profundo na sociedade, trazendo tanto benefícios quanto desafios:\n\n*   **Benefícios:**\n    *   **Acesso à Informação e Educação:** Facilita o aprendizado e a pesquisa.\n    *   **Melhora na Comunicação:** Conecta pessoas globalmente de forma instantânea.\n    *   **Avanços na Saúde:** Contribui para diagnósticos mais precisos e tratamentos eficazes.\n    *   **Aumento da Produtividade:** Otimiza processos em indústrias e serviços.\n    *   **Criação de Novas Oportunidades:** Gera novos mercados de trabalho e modelos de negócio.\n*   **Desafios:**\n    *   **Questões de Privacidade e Segurança:** Necessidade de proteger dados pessoais e sistemas.\n    *   **Exclusão Digital:** Nem todos têm acesso igual às novas tecnologias.\n    *   **Dependência Tecnológica:** Risco de uso excessivo e impactos na saúde mental.\n    *   **Impacto no Mercado de Trabalho:** Automação pode substituir algumas funções humanas.\n\n**Tendências Atuais**\n\nAlgumas das tecnologias mais relevantes e que estão moldando o futuro incluem:\n\n*   **Inteligência Artificial (IA) e Machine Learning:** Sistemas capazes de aprender, raciocinar e tomar decisões.\n*   **Internet das Coisas (IoT):** Conexão de objetos do cotidiano à internet, coletando e trocando dados.\n*   **Big Data:** Análise de grandes volumes de dados para identificar padrões e tendências.\n*   **Computação em Nuvem (Cloud Computing):** Armazenamento e processamento de dados em servidores remotos.\n*   **Cibersegurança:** Foco na proteção de sistemas e informações contra ameaças digitais.\n*   **Realidade Aumentada (RA) e Realidade Virtual (RV):** Novas formas de interação e imersão em ambientes digitais.\n\n---\n\nEspero que este resumo seja útil para você! Se tiver mais alguma pergunta ou quiser se aprofundar em algum ponto, é só me dizer.",
+    "criadoEm": "2026-05-26T20:12:46.843Z"
   }
 ]
