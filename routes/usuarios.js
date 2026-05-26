@@ -1,39 +1,58 @@
 import { Router } from 'express'
-import { adicionarMoedas, buscarPorId, listarUsuarios } from '../storage/usuarios.js'
+import {
+  autenticar,
+  idUsuarioInvalido,
+  responderErroIdUsuario,
+} from '../middleware/autenticar.js'
+import { adicionarMoedas, buscarPorId } from '../storage/usuarios.js'
 
 const router = Router()
 
-router.get('/', async (_req, res) => {
-  try {
-    const usuarios = await listarUsuarios()
-    console.log('[USUARIOS] Listagem completa:', usuarios.length, 'registro(s)')
-    res.json({ usuarios })
-  } catch (erro) {
-    console.error(erro)
-    res.status(500).json({ mensagem: 'Erro ao listar usuários' })
+function usuarioPublico(usuario) {
+  return {
+    id: usuario.id,
+    nome: usuario.nome,
+    email: usuario.email,
+    cpf: usuario.cpf,
+    moedas: usuario.moedas ?? 0,
   }
-})
+}
 
-router.post('/:id/moedas', async (req, res) => {
+router.get('/me', autenticar, async (req, res) => {
   try {
-    const quantidade = Number(req.body?.quantidade) || 100
-    const usuario = await adicionarMoedas(req.params.id, quantidade)
+    const usuario = await buscarPorId(req.usuarioId)
 
     if (!usuario) {
       return res.status(404).json({ mensagem: 'Usuário não encontrado' })
     }
 
-    console.log('[MOEDAS] Adicionadas:', { id: usuario.id, quantidade, total: usuario.moedas })
+    res.json({ usuario: usuarioPublico(usuario) })
+  } catch (erro) {
+    console.error(erro)
+    res.status(500).json({ mensagem: 'Erro ao buscar usuário' })
+  }
+})
+
+router.get('/', autenticar, (_req, res) => {
+  res.status(403).json({ mensagem: 'Acesso negado' })
+})
+
+router.post('/:id/moedas', autenticar, async (req, res) => {
+  try {
+    if (idUsuarioInvalido(req, req.params.id)) {
+      return responderErroIdUsuario(res)
+    }
+
+    const quantidade = Number(req.body?.quantidade) || 100
+    const usuario = await adicionarMoedas(req.usuarioId, quantidade)
+
+    if (!usuario) {
+      return res.status(404).json({ mensagem: 'Usuário não encontrado' })
+    }
 
     res.json({
       mensagem: `${quantidade} moedas adicionadas`,
-      usuario: {
-        id: usuario.id,
-        nome: usuario.nome,
-        email: usuario.email,
-        cpf: usuario.cpf,
-        moedas: usuario.moedas,
-      },
+      usuario: usuarioPublico(usuario),
     })
   } catch (erro) {
     console.error(erro)
@@ -41,23 +60,19 @@ router.post('/:id/moedas', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', autenticar, async (req, res) => {
   try {
-    const usuario = await buscarPorId(req.params.id)
+    if (idUsuarioInvalido(req, req.params.id)) {
+      return responderErroIdUsuario(res)
+    }
+
+    const usuario = await buscarPorId(req.usuarioId)
 
     if (!usuario) {
       return res.status(404).json({ mensagem: 'Usuário não encontrado' })
     }
 
-    res.json({
-      usuario: {
-        id: usuario.id,
-        nome: usuario.nome,
-        email: usuario.email,
-        cpf: usuario.cpf,
-        moedas: usuario.moedas ?? 0,
-      },
-    })
+    res.json({ usuario: usuarioPublico(usuario) })
   } catch (erro) {
     console.error(erro)
     res.status(500).json({ mensagem: 'Erro interno no servidor' })

@@ -4,7 +4,7 @@
     "nome": "Ana Silva",
     "email": "ana.silva@email.com",
     "cpf": "123.456.789-01",
-    "senha": "senha123",
+    "senha": "$2b$10$M0uDavG9rWjs.Nys9GhggeleXaws1Cg6Qz9uwYbbDVqVYXgNogcCm",
     "moedas": 65,
     "criadoEm": "2026-05-18T10:15:00.000Z"
   },
@@ -13,7 +13,7 @@
     "nome": "Bruno Costa",
     "email": "bruno.costa@empresa.com.br",
     "cpf": "987.654.321-00",
-    "senha": "abc12345",
+    "senha": "$2b$10$pbGqQoCLJ4d4ShLjhMpEdu/8JtvKIqTVGFd/CSR6d7uDEBHroInXy",
     "moedas": 70,
     "criadoEm": "2026-05-19T14:22:30.000Z"
   },
@@ -22,7 +22,7 @@
     "nome": "Carla Mendes",
     "email": "carla.mendes@gmail.com",
     "cpf": "456.789.123-45",
-    "senha": "carla2026",
+    "senha": "$2b$10$hVnUnoUFnEXP1ezafGj3/eW1Y0MjUlOs3Z.s9HVulU83CJS89ASfq",
     "moedas": 100,
     "criadoEm": "2026-05-19T16:40:12.000Z"
   },
@@ -31,7 +31,7 @@
     "nome": "Diego Oliveira",
     "email": "diego.oliveira@outlook.com",
     "cpf": "321.654.987-12",
-    "senha": "123456",
+    "senha": "$2b$10$6v.fLlbumxeBadSTb.vic.rXA.3dkAypusxFQxUofJ0JqZkJPbDl6",
     "moedas": 55,
     "criadoEm": "2026-05-20T09:05:45.000Z"
   },
@@ -40,7 +40,7 @@
     "nome": "Elena Rocha",
     "email": "elena.rocha@sesi.demo",
     "cpf": "111.222.333-44",
-    "senha": "elena@99",
+    "senha": "$2b$10$bcWhal3yCnurVSlu8q36A.CWjg8OyGOzDdZ.pwCZglkzpYCQYmb8W",
     "moedas": 90,
     "criadoEm": "2026-05-20T11:30:00.000Z"
   },
@@ -49,7 +49,7 @@
     "nome": "Felipe Santos",
     "email": "felipe.santos@yahoo.com.br",
     "cpf": "555.666.777-88",
-    "senha": "felipe123",
+    "senha": "$2b$10$42DPCn88n4xZBa46E0bmquPPPtdfINGTY85RoqHfUgC6gHBGERski",
     "moedas": 130,
     "criadoEm": "2026-05-21T08:12:18.000Z"
   },
@@ -58,7 +58,7 @@
     "nome": "Gabriela Lima",
     "email": "gabriela.lima@hotmail.com",
     "cpf": "999.888.777-66",
-    "senha": "gabi2026",
+    "senha": "$2b$10$JLYGIZqBhrwvv7HGna10AuF1OPmAOPenw7AfxDv4ZL55G7sLEn3Dy",
     "moedas": 40,
     "criadoEm": "2026-05-21T13:45:33.000Z"
   },
@@ -67,7 +67,7 @@
     "nome": "Jean Ortega",
     "email": "jean.ortega@gmail.com",
     "cpf": "071.544.831-56",
-    "senha": "123456",
+    "senha": "$2b$10$332icpVI7EHfJtT.TIFpo.XqaZEGZzFhIUr7HQK0Bolu4Swxec1OS",
     "moedas": 100,
     "criadoEm": "2026-05-22T10:00:00.000Z"
   }
