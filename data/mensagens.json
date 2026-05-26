@@ -58,5 +58,37 @@
     "nome": "ChatBot",
     "texto": "Entendi! Fico à disposição para ajudar com qualquer dúvida ou informação que precisar sobre o Sesi.\n\nSe quiser testar algo específico, é só me dizer.",
     "criadoEm": "2026-05-26T11:47:14.152Z"
+  },
+  {
+    "id": "1779825160239-u",
+    "usuarioId": "1",
+    "conversaUsuarioId": "1",
+    "nome": "Ana Silva",
+    "texto": "ola boa tarde",
+    "criadoEm": "2026-05-26T19:52:40.239Z"
+  },
+  {
+    "id": "1779825165228-b",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "1",
+    "nome": "ChatBot",
+    "texto": "Olá! Boa tarde para você também. Como posso ajudar hoje?",
+    "criadoEm": "2026-05-26T19:52:45.228Z"
+  },
+  {
+    "id": "1779825255181-u",
+    "usuarioId": "3",
+    "conversaUsuarioId": "3",
+    "nome": "Carla Mendes",
+    "texto": "ola chat",
+    "criadoEm": "2026-05-26T19:54:15.181Z"
+  },
+  {
+    "id": "1779825256770-b",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "3",
+    "nome": "ChatBot",
+    "texto": "Olá!\n\nSou o seu **ChatBot do Sesi**. É um prazer te ajudar!\n\nComo posso auxiliar você hoje?",
+    "criadoEm": "2026-05-26T19:54:16.770Z"
   }
 ]
