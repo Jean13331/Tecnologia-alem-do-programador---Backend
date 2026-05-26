@@ -188,7 +188,16 @@
     "/api/chat": {
       "get": {
         "tags": ["Chat"],
-        "summary": "Listar todas as mensagens do chat",
+        "summary": "Listar mensagens do chat do usuário",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ID do usuário dono da conversa"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Histórico de mensagens",
@@ -268,7 +277,16 @@
       },
       "delete": {
         "tags": ["Chat"],
-        "summary": "Limpar toda a conversa",
+        "summary": "Limpar conversa de um usuário",
+        "parameters": [
+          {
+            "name": "usuarioId",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "ID do usuário dono da conversa"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Chat limpo",
@@ -347,6 +365,10 @@
         "properties": {
           "id": { "type": "string" },
           "usuarioId": { "type": "string", "description": "ID do usuário ou \"chatbot\"" },
+          "conversaUsuarioId": {
+            "type": "string",
+            "description": "Dono da conversa (histórico isolado por usuário)"
+          },
           "nome": { "type": "string" },
           "texto": { "type": "string" },
           "criadoEm": { "type": "string", "format": "date-time" }

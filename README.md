@@ -35,9 +35,9 @@ JSON bruto da spec: `http://localhost:3001/api/docs/openapi.json`
 | GET | `/api/usuarios` | Lista todos os usuários (dados completos, incluindo senha) |
 | GET | `/api/usuarios/:id` | Busca um usuário por ID |
 | POST | `/api/usuarios/:id/moedas` | Adiciona moedas ao usuário |
-| GET | `/api/chat` | Lista mensagens do chat |
+| GET | `/api/chat?usuarioId=` | Lista mensagens do chat do usuário |
 | POST | `/api/chat` | Envia mensagem (custa **15 moedas**) |
-| DELETE | `/api/chat` | Limpa todas as mensagens da conversa |
+| DELETE | `/api/chat?usuarioId=` | Limpa a conversa apenas do usuário informado |
 
 ### Cadastro — `POST /api/cadastro`
 
