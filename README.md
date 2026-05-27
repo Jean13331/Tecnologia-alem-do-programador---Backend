@@ -43,11 +43,11 @@ JSON bruto da spec: `http://localhost:3001/api/docs/openapi.json`
 
 ```json
 {
-  "nome": "Jean",
-  "email": "jean@email.com",
-  "cpf": "071.544.831-56",
-  "senha": "123456",
-  "confirmarSenha": "123456"
+  "nome": "Ana Silva",
+  "email": "ana.silva@email.com",
+  "cpf": "123.456.789-01",
+  "senha": "senha123",
+  "confirmarSenha": "senha123"
 }
 ```
 
@@ -55,8 +55,8 @@ JSON bruto da spec: `http://localhost:3001/api/docs/openapi.json`
 
 ```json
 {
-  "email": "jean@email.com",
-  "senha": "123456"
+  "email": "ana.silva@email.com",
+  "senha": "senha123"
 }
 ```
 
@@ -72,7 +72,7 @@ JSON bruto da spec: `http://localhost:3001/api/docs/openapi.json`
 {
   "usuarioId": "id-de-quem-aparece-na-mensagem",
   "usuarioCobrancaId": "id-de-quem-paga-as-moedas",
-  "nome": "Jean",
+  "nome": "Ana",
   "texto": "Olá",
   "moedasDescontadas": 0
 }
