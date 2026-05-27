@@ -1,33 +1,5 @@
 [
   {
-    "id": "1779719602255-u",
-    "usuarioId": "2",
-    "nome": "Bruno Costa",
-    "texto": "oie",
-    "criadoEm": "2026-05-25T14:33:22.255Z"
-  },
-  {
-    "id": "1779719603907-b",
-    "usuarioId": "chatbot",
-    "nome": "ChatBot",
-    "texto": "Olá! Seja bem-vindo(a) ao Sesi.\n\nComo posso te ajudar hoje? 😊",
-    "criadoEm": "2026-05-25T14:33:23.907Z"
-  },
-  {
-    "id": "1779721121173-u",
-    "usuarioId": "2",
-    "nome": "Bruno Costa",
-    "texto": "tudo bem ?",
-    "criadoEm": "2026-05-25T14:58:41.173Z"
-  },
-  {
-    "id": "1779721122922-b",
-    "usuarioId": "chatbot",
-    "nome": "ChatBot",
-    "texto": "Olá! Como um sistema de inteligência artificial, estou sempre funcionando perfeitamente e pronto para te ajudar.\n\nE você, como está? Espero que tudo ótimo!\n\nComo posso ser útil para você hoje? 😊",
-    "criadoEm": "2026-05-25T14:58:42.922Z"
-  },
-  {
     "id": "1779795996123-u",
     "usuarioId": "5",
     "conversaUsuarioId": "5",
@@ -76,22 +48,6 @@
     "criadoEm": "2026-05-26T19:52:45.228Z"
   },
   {
-    "id": "1779825255181-u",
-    "usuarioId": "3",
-    "conversaUsuarioId": "3",
-    "nome": "Carla Mendes",
-    "texto": "ola chat",
-    "criadoEm": "2026-05-26T19:54:15.181Z"
-  },
-  {
-    "id": "1779825256770-b",
-    "usuarioId": "chatbot",
-    "conversaUsuarioId": "3",
-    "nome": "ChatBot",
-    "texto": "Olá!\n\nSou o seu **ChatBot do Sesi**. É um prazer te ajudar!\n\nComo posso auxiliar você hoje?",
-    "criadoEm": "2026-05-26T19:54:16.770Z"
-  },
-  {
     "id": "1779826358227-u",
     "usuarioId": "1",
     "conversaUsuarioId": "1",
@@ -106,5 +62,101 @@
     "nome": "ChatBot",
     "texto": "Com certeza! A tecnologia é um tema vasto e fascinante.\n\nAqui está um resumo sobre o tema de tecnologia:\n\n---\n\n**O que é Tecnologia?**\n\nTecnologia pode ser definida como a **aplicação do conhecimento científico e técnico para criar ferramentas, sistemas, métodos e processos** que visam resolver problemas práticos, melhorar a eficiência e estender as capacidades humanas. Ela está presente em praticamente todos os aspectos da nossa vida, desde as ferramentas mais simples até os sistemas mais complexos.\n\n**Principais Áreas e Exemplos**\n\nA tecnologia abrange diversas áreas, como:\n\n*   **Tecnologia da Informação (TI):** Envolve computadores, softwares, redes, internet e sistemas de gerenciamento de dados. Exemplos incluem smartphones, aplicativos, websites e sistemas operacionais.\n*   **Comunicações:** Refere-se aos meios e métodos para transmitir informações. Inclui telefonia, rádio, televisão, satélites e, mais recentemente, a Internet das Coisas (IoT).\n*   **Biotecnologia:** Aplica conhecimentos biológicos para criar produtos e soluções, como medicamentos, alimentos geneticamente modificados e terapias gênicas.\n*   **Engenharia e Automação:** Desenvolvimento de máquinas, robôs e sistemas automatizados para indústrias, veículos e residências.\n*   **Energia:** Tecnologias para geração, armazenamento e distribuição de energia, como painéis solares, turbinas eólicas e baterias avançadas.\n*   **Saúde:** Equipamentos médicos, telemedicina, próteses avançadas e sistemas de diagnóstico.\n\n**Impacto na Sociedade**\n\nA tecnologia tem um impacto profundo na sociedade, trazendo tanto benefícios quanto desafios:\n\n*   **Benefícios:**\n    *   **Acesso à Informação e Educação:** Facilita o aprendizado e a pesquisa.\n    *   **Melhora na Comunicação:** Conecta pessoas globalmente de forma instantânea.\n    *   **Avanços na Saúde:** Contribui para diagnósticos mais precisos e tratamentos eficazes.\n    *   **Aumento da Produtividade:** Otimiza processos em indústrias e serviços.\n    *   **Criação de Novas Oportunidades:** Gera novos mercados de trabalho e modelos de negócio.\n*   **Desafios:**\n    *   **Questões de Privacidade e Segurança:** Necessidade de proteger dados pessoais e sistemas.\n    *   **Exclusão Digital:** Nem todos têm acesso igual às novas tecnologias.\n    *   **Dependência Tecnológica:** Risco de uso excessivo e impactos na saúde mental.\n    *   **Impacto no Mercado de Trabalho:** Automação pode substituir algumas funções humanas.\n\n**Tendências Atuais**\n\nAlgumas das tecnologias mais relevantes e que estão moldando o futuro incluem:\n\n*   **Inteligência Artificial (IA) e Machine Learning:** Sistemas capazes de aprender, raciocinar e tomar decisões.\n*   **Internet das Coisas (IoT):** Conexão de objetos do cotidiano à internet, coletando e trocando dados.\n*   **Big Data:** Análise de grandes volumes de dados para identificar padrões e tendências.\n*   **Computação em Nuvem (Cloud Computing):** Armazenamento e processamento de dados em servidores remotos.\n*   **Cibersegurança:** Foco na proteção de sistemas e informações contra ameaças digitais.\n*   **Realidade Aumentada (RA) e Realidade Virtual (RV):** Novas formas de interação e imersão em ambientes digitais.\n\n---\n\nEspero que este resumo seja útil para você! Se tiver mais alguma pergunta ou quiser se aprofundar em algum ponto, é só me dizer.",
     "criadoEm": "2026-05-26T20:12:46.843Z"
+  },
+  {
+    "id": "1779883790447-u",
+    "usuarioId": "2",
+    "conversaUsuarioId": "2",
+    "nome": "Bruno Costa",
+    "texto": "chat pode sortear um nome para mim ?\n\nAMANDA SOUZA RIOS\nANA BEATRIZ SILVA E SILVA\nANA CARLA BARROS DE LIMA\nANA CARLA COSTA DOS SANTOS\nARIANE GOMES DOS SANTOS\nBRENO GUSTAVO DA SILVA PALHETA\nDÉBORA FREITAS MEIRELES RIBEIRO\nELIANE LOPES SANTANA\nELOISE VITORIA DOS SANTOS SILVA\nEMANUELLY VICTÓRIA SOARES CUNHA\nEMILLY KETLLYN DA SILVA SANTOS\nGABRIEL FERREIRA LIMA\nHEVERTON YURI VIEIRA SILVA\nJULIANA ALVES ARAUJO\nKAUÁ RODRIGUES\nKENNEDY GABRIEL FERREIRA SOUZA\nLUAIRA DE AMORIM DA COSTA\nMARIA EDUARDA LUCAS SILVEIRA\nNATASHA SOUSA DA SILVA NUNES\nNICOLAS DE LIMA LOPES\nSTHEFANY KARINE SOUSA FERREIRA\nTHAILA OLIVEIRA PEREIRA\nTHALLYSON EDUARDO DOS ANJOS SILVA\nVICTOR HUGO COSTA SOUSA\nADRIEL FERNANDES CRUVINEL\nALECSANDRO DIAMANTINO DA SILVA\nANA CLARA SANTOS DA SILVA\nARTHUR VIEIRA RONCOLATO\nBRENDA DOS SANTOS BARBOSA\nDOMYNIK EDUARDA ROCHA SILVA\nEMELLY MOREIRA ARANTES RODRIGUES\nEMILLY VICTÓRIA ARAUJO SOUZA\nFELIPE ARIEL PERES AGUIAR\nGABRIEL HENRIQUE MENDES GOUVÊIA\nGUILHERME SANTOS SOUZA\nGUSTAVO HENRIQUE VIEIRA DE PAULA\nIAN HENDERSON SOUZA SANTOS\nISABELLA ITAMURA BARBOSA\nISABELLY ROSA DE OLIVEIRA\nJAILA VIVIANNY SILVA PEREIRA\nJOÁO PEDRO SILVA DE OLIVEIRA\nKAMILLE VITÓRIA TRINDADE ABREU\nKAMILY CRISTINA DA FONSECA CORRÊA\nKAUAN ISAAC DOS SANTOS PINHEIRO\nLUAN KAYRON BORGES MACHADO\nLUIS VICTOR MEDEIROS DOS SANTOS\nMARCELA LOPES MENDES\nMARCELO RODOLFO RORATO DE OLIVEIRA\nMARCELO SILVA VIEIRA FILHO\nMARCOS FELLIPE DA ROCHA RIBEIRO\nMARIA FERNANDA SANTOS\nMATEUS VICTOR OLIVEIRA DE ARAÚJO NUNES\nMATHEUS PERES DE CASTRO\nMIRIELY VITORIA COSTA NASCIMENTO\nNYKAELY DO NASCIMENTO DE OLIVEIRA ARRUDA\nPEDRO OLIVEIRA DOS SANTOS\nRAFAELA FERNANDES DOS SANTOS\nRAQUEL SILVA LIMA\nRAYSSA VITORIA SOUSA GONÇALVES\nSAMUEL HENRIQUE SILVA MACIEL\nTHAUAN DA SILVA RABELO\nTHIERRY RIBEIRO VIANA\nYASMIM MARTINS DA SILVA\nALINE VASCONCELOS DA SILVA\nANDERSON SILVA DOS SANTOS\nARIANY MENDES BARBOSA OLIVEIRA\nDAVI PEREIRA DIAS\nDAVID DA SILVA COUTO\nDÉBORA PEREIRA SANTOS FERNANDES\nGABRIEL FONTENELE LEAL DOS SANTOS\nGABRYELA DOS SANTOS LIMA\nGUSTAVO SANTOS DOS REIS\nIASMYN SOUZA SANTIAGO\nISABELA DE SOUZA SANTOS\nJOÁO PEDRO LEMES DE SÁ\nJOÁO VÍTOR PINHEIRO MENDONÇA\nJULLYA ALVES MOURA\nLARISSA FARIA ALVES SOUZA\nMARIA CLÁUDIA BRITO TERRES\nMARY ISLANDIA DOS SANTOS CHAVES\nMATHEUS VICTOR DE SOUZA SCHULZE\nMICHEL ENDERSON PEREIRA DOS SANTOS\nNICOLI DA SILVA DE OLIVEIRA\nTHAUANY SANTOS OLIVEIRA\nWALLAS EDUARDO SOUZA DE SÁ\nANA CAROLINA DE PAULA FERREIRA SILVA\nANA JULIA SOUZA DUARTE\nANDERSON DOS SANTOS DA LUZ\nFERNANDO ALONSO ALCANTARA CARVALHO\nGABRIEL PEREIRA DE CASTRO\nHENZO RAPHAEL GOMES DOS SANTOS\nHIAGO ROSA DOS SANTOS\nJONATHAN LOPES DE OLIVEIRA\nJUAN PABLO SOUZA MARQUES\nKAUA RODRIGUES BORGES\nKAUAN VIEIRA DE SOUZA\nLAURA SOFIA DA SILVA SANTOS\nLÁZARO FERREIRA DIAS FILHO\nLEONARDO HENRIQUE CANDIDO SOUSA\nLUCAS QUEIROZ DE SOUZA\nMARCOS VINICIOS OLIVEIRA LIMA\nNAUANNA SILVA DE OLIVEIRA\nPIETRO ALEXANDRE TAVARES VIEIRA\nRICARDO PEREIRA DO ROSARIO\nSANTIAGO DANTAS SILVA\nVINICIO PASSOS SILVA\nALICIA NUNES CARVALHO\nANA JULIA SILVA NOGUEIRA\nANA JULLYA DOS SANTOS ALIXANDRE\nBEATRIZ SALES NASCIMENTO\nEMILLY VITÓRIA VIEIRA FERNANDES\nEVELLYN COSTA CEZILIO\nHELOISA DE SOUSA LIMA\nIZABELY RIBEIRO GOMES DE JESUS\nJÉSSICA GOMES DE LIMA\nMARIA CLARA SILVA CARDOSO\nNARIELLE APOLINÁRIO DA COSTA\nRAFAELLA MELO DE MORAIS\nRAYANNE CONCEIÇÁO DA SILVA\nTICIANY SOPHIA MIRANDA DO NASCIMENTO\nYSABELLA RAMADA GOMES\nALEX SOUSA GUERREIRO\nCAIO VINÍCIUS LACERDA COSTA\nCARLOS ALEXANDRE BERNARDES SIQUEIRA\nCARLOS AUGUSTO SANTOS DE OLIVEIRA\nFILIPE MARQUES CANA VERDE\nGABRIEL MOTA ROSENO\nGUSTAVO SANTOS PALMEIRAS\nISAAC RIBEIRO DA SILVA\nKAIO MIGUEL DE OLIVEIRA\nPEDRO HENRIQUE SANTOS EVANGELISTA\nTHIAGO WILLIAN DOS SANTOS TEIXEIRA\nYURI ALEXANDRE DA SILVA BARROS",
+    "criadoEm": "2026-05-27T12:09:50.447Z"
+  },
+  {
+    "id": "1779883790922-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "2",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: fetch failed",
+    "criadoEm": "2026-05-27T12:09:50.922Z"
+  },
+  {
+    "id": "1779883910973-u",
+    "usuarioId": "2",
+    "conversaUsuarioId": "2",
+    "nome": "Bruno Costa",
+    "texto": "ola chat",
+    "criadoEm": "2026-05-27T12:11:50.973Z"
+  },
+  {
+    "id": "1779883911179-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "2",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: fetch failed",
+    "criadoEm": "2026-05-27T12:11:51.179Z"
+  },
+  {
+    "id": "1779884085607-u",
+    "usuarioId": "1",
+    "conversaUsuarioId": "1",
+    "nome": "Ana Silva",
+    "texto": "ola chat",
+    "criadoEm": "2026-05-27T12:14:45.607Z"
+  },
+  {
+    "id": "1779884085880-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "1",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: fetch failed",
+    "criadoEm": "2026-05-27T12:14:45.880Z"
+  },
+  {
+    "id": "1779884393398-u",
+    "usuarioId": "5",
+    "conversaUsuarioId": "5",
+    "nome": "Elena Rocha",
+    "texto": "ola",
+    "criadoEm": "2026-05-27T12:19:53.398Z"
+  },
+  {
+    "id": "1779884398755-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "5",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: Falha de rede ao Gemini: fetch failed. Falha ao validar HTTPS (certificado/inspeção SSL).",
+    "criadoEm": "2026-05-27T12:19:58.755Z"
+  },
+  {
+    "id": "1779885738039-u",
+    "usuarioId": "3",
+    "conversaUsuarioId": "3",
+    "nome": "Carla Mendes",
+    "texto": "ola",
+    "criadoEm": "2026-05-27T12:42:18.039Z"
+  },
+  {
+    "id": "1779885743323-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "3",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: Falha de rede ao Gemini: fetch failed. Falha ao validar HTTPS (certificado/inspeção SSL).",
+    "criadoEm": "2026-05-27T12:42:23.323Z"
+  },
+  {
+    "id": "1779885896692-u",
+    "usuarioId": "3",
+    "conversaUsuarioId": "3",
+    "nome": "Carla Mendes",
+    "texto": "oioiguhiu",
+    "criadoEm": "2026-05-27T12:44:56.692Z"
+  },
+  {
+    "id": "1779885901943-e",
+    "usuarioId": "chatbot",
+    "conversaUsuarioId": "3",
+    "nome": "ChatBot",
+    "texto": "Não consegui responder agora: Falha de rede ao Gemini: fetch failed. Falha ao validar HTTPS (certificado/inspeção SSL).",
+    "criadoEm": "2026-05-27T12:45:01.943Z"
   }
 ]

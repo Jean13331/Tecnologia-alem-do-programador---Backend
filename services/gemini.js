@@ -32,7 +32,14 @@ function erroRecuperavel(status, mensagem) {
     texto.includes('overloaded') ||
     texto.includes('try again') ||
     texto.includes('resource_exhausted') ||
-    texto.includes('unavailable')
+    texto.includes('unavailable') ||
+    texto.includes('fetch failed') ||
+    texto.includes('socket') ||
+    texto.includes('econnreset') ||
+    texto.includes('enotfound') ||
+    texto.includes('etimedout') ||
+    texto.includes('certificate') ||
+    texto.includes('ssl')
   )
 }
 
@@ -40,32 +47,95 @@ export function isChatbot(usuarioId) {
   return usuarioId === CHATBOT_ID
 }
 
+function montarErroFetch(mensagem, causaOriginal) {
+  const erro = new Error(mensagem)
+  erro.code = causaOriginal?.code
+  erro.causaOriginal = causaOriginal
+  return erro
+}
+
 async function gerarComModelo(apiKey, modelo, contents) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent?key=${apiKey}`
 
-  const resposta = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      systemInstruction: {
-        parts: [
-          {
-            text:
-              'Você é o ChatBot do sistema Sesi. Responda sempre em português do Brasil, com acentuação correta (UTF-8). ' +
-              'Use parágrafos curtos, listas com * quando fizer sentido e **negrito** para títulos. ' +
-              'Se a resposta for longa, organize por tópicos sem cortar frases no meio.',
-          },
-        ],
-      },
-      generationConfig: {
-        maxOutputTokens: MAX_OUTPUT_TOKENS,
-        temperature: 0.7,
-      },
-      contents,
-    }),
-  })
+  let resposta
+  const tempoLimiteMs = Number(process.env.GEMINI_FETCH_TIMEOUT_MS) || 60_000
+  const ctl = new AbortController()
+  const timer = setTimeout(() => ctl.abort(), tempoLimiteMs)
 
-  const dados = await resposta.json()
+  try {
+    resposta = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        systemInstruction: {
+          parts: [
+            {
+              text:
+                'Você é o ChatBot do sistema Sesi. Responda sempre em português do Brasil, com acentuação correta (UTF-8). ' +
+                'Use parágrafos curtos, listas com * quando fizer sentido e **negrito** para títulos. ' +
+                'Se a resposta for longa, organize por tópicos sem cortar frases no meio.',
+            },
+          ],
+        },
+        generationConfig: {
+          maxOutputTokens: MAX_OUTPUT_TOKENS,
+          temperature: 0.7,
+        },
+        contents,
+      }),
+      signal: ctl.signal,
+    })
+  } catch (fetchErr) {
+    const codigo =
+      typeof fetchErr === 'object' && fetchErr && 'cause' in fetchErr
+        ? fetchErr.cause
+        : fetchErr
+
+    let detalhe = fetchErr.message || 'Erro de rede'
+
+    const code =
+      codigo &&
+      typeof codigo === 'object' &&
+      'code' in codigo &&
+      typeof codigo.code === 'string'
+        ? codigo.code
+        : null
+
+    if (code === 'ENOTFOUND') {
+      detalhe +=
+        '. Sem DNS/rede até generativelanguage.googleapis.com — verifique internet e firewall.'
+    } else if (code === 'ECONNRESET' || code === 'ECONNREFUSED') {
+      detalhe +=
+        '. Conexão bloqueada ou recusada — proxy corporativo/VPN/antivírus com frequência causa isso.'
+    } else if (code === 'ETIMEDOUT' || fetchErr.name === 'AbortError') {
+      detalhe +=
+        '. Tempo esgotado — rede lenta ou serviço inacessível neste momento.'
+    } else if (code === 'UNABLE_TO_VERIFY_LEAF_SIGNATURE' || code === 'CERT_HAS_EXPIRED') {
+      detalhe += '. Falha ao validar HTTPS (certificado/inspeção SSL).'
+    }
+
+    console.warn('[GEMINI] Detalhe da rede:', {
+      modelo,
+      code,
+      message: fetchErr.message,
+      causa: codigo instanceof Error ? codigo.message : codigo,
+    })
+
+    throw montarErroFetch(`Falha de rede ao Gemini: ${detalhe}`, codigo instanceof Error ? codigo : fetchErr)
+  } finally {
+    clearTimeout(timer)
+  }
+
+  let dados
+  try {
+    dados = await resposta.json()
+  } catch {
+    const texto = await resposta.text().catch(() => '')
+    throw montarErroFetch(
+      `Resposta Gemini inválida (HTTP ${resposta.status}). ${texto.slice(0, 200)}`,
+      null,
+    )
+  }
 
   if (!resposta.ok) {
     const detalhe =
